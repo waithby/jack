@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/template.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var data = {
+                title:"标题栏",
+                list:["主页","游戏","音乐","动漫","耽美"]
+            }
+            // var html = template("test",data);
+            // $('body').append(html);
+
+            var  str = "<h2>{{title}}</h2>"
+                        +"<ul>"
+                        +    "{{each list as value index}}"
+                        +    "<li>序号{{index}}：{{value}}</li>"
+                        +    "{{/each}}"
+                        +"</ul>";
+            var  list    =  template.compile(str);
+
+            var html = list(data);
+            $('body').append(html);
+        })
+    </script>
+    <script id="test" type="text/html">
+        <h2>{{title}}</h2>
+        <ul>
+            {{each list as value index}}
+            <li>序号{{index}}：{{value}}</li>
+            {{/each}}
+        </ul>
+    </script>
+</head>
+<body>
+
+<!--     <h2>biantilan</h2>
+    <ul>
+        <li> 内容</li>
+    </ul> -->
+    
+</body>
+</html>
